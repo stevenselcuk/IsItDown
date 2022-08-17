@@ -31,7 +31,7 @@
 - Launch app > Click it on the menubar to open the main window
 - Click on the "Plus" button
 - Give a name
-- You can hide/show on the menubar (Keep your menubar space wisely)
+- You can hide/show on the menubar (Use your menubar space wisely)
 - Enter URL & hit enter
 
 #### How to change the check interval?

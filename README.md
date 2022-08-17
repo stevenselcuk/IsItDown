@@ -43,6 +43,10 @@
 
 `macOS >= 12`
 
+## Download
+
+[Download from GitHub](https://github.com/stevenselcuk/IsItDown/releases/download/1.0/IsItDown.zip)
+
   
 ## Roadmap 🗺
 

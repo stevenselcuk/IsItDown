@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ATSApplicationFontsPath</key>
+	<string>Fonts</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fonts/Gilroy-Semibold.otf</string>
+		<string>Fonts/Gilroy-Medium.otf</string>
+		<string>Fonts/circe.ttf</string>
+		<string>Fonts/circe-light.ttf</string>
+		<string>Fonts/circe-bold.ttf</string>
+		<string>Fonts/circe-extrabold.ttf</string>
+		<string>Fonts/circe-extralight.ttf</string>
+		<string>Fonts/CartographMonoCFMedium.ttf</string>
+		<string>Fonts/circe-thin.ttf</string>
+		<string>Fonts/CartographMonoCFRegular.ttf</string>
+	</array>
+</dict>
+</plist>

@@ -44,6 +44,8 @@
 `macOS >= 12`
 
 ## Download
+	
+[Download from AppStore](https://apps.apple.com/us/app/is-it-down/id1640267516) 
 
 [Download from GitHub](https://github.com/stevenselcuk/IsItDown/releases/download/1.0/IsItDown.zip)
 

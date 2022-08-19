@@ -56,8 +56,8 @@ struct MenubarView: View {
                     }*/
                 }
             }
-            
-            .frame(width: CGFloat(assets.reduce(0) { $0 + ($1.name?.count ?? 1) }) * 10 + CGFloat(assets.count) * 15, height: 20, alignment: .center)
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity)
                 .onReceive(timer) { _ in
                     isConnected = Reachability.isConnectedToNetwork()
                     for asset in assets {

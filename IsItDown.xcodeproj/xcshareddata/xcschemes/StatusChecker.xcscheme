@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A51E20E28ABEBBB001E93BE"
-               BuildableName = "StatusChecker.app"
+               BuildableName = "IsItDown.app"
                BlueprintName = "IsItDown"
                ReferencedContainer = "container:IsItDown.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A51E20E28ABEBBB001E93BE"
-            BuildableName = "StatusChecker.app"
+            BuildableName = "IsItDown.app"
             BlueprintName = "IsItDown"
             ReferencedContainer = "container:IsItDown.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A51E20E28ABEBBB001E93BE"
-            BuildableName = "StatusChecker.app"
+            BuildableName = "IsItDown.app"
             BlueprintName = "IsItDown"
             ReferencedContainer = "container:IsItDown.xcodeproj">
          </BuildableReference>

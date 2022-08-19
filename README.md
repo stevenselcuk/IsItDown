@@ -6,7 +6,7 @@
 <br>
 
 <p align="center">
-<a href="https://apps.apple.com/us/app/tabbynote-micro-note-taking/id1555858947" target="_blank">
+<a href="https://apps.apple.com/us/app/is-it-down/id1640267516" target="_blank">
     <img
       src="https://i.imgur.com/4sHArE8.jpg"
       alt="🤨 Is it down? Hope not"

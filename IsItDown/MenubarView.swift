@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct MenubarView: View {
     @ObservedObject var manager = Manager.share
@@ -16,18 +17,22 @@ struct MenubarView: View {
     var assets: FetchedResults<Asset>
 
     @State var isConnected: Bool = true
+    @State var notificationStatus: Bool = storage.bool(forKey: "notificationStatus")
     var body: some View {
         if assets.count < 1 {
-            Text("🤨 Is it down?")
-                .fontMonoMedium(color: .white, size: 12)
-                .padding(.all, 3)
-                .background(Color.gray.opacity(0.4))
-                .cornerRadius(3)
-                .padding(.vertical, 3)
-                .frame(width: 115, height: 20, alignment: .center)
+            LazyHStack(alignment: .center, spacing: 0) {
+                Text("🤨")
+                    .fontMonoMedium(color: .white, size: 12)
+                    .padding(.all, 3)
+                    .background(Color.gray.opacity(0.4))
+                    .cornerRadius(3)
+                    .padding(.vertical, 3)
+            }
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity)
         } else if isConnected == true {
             LazyHStack(alignment: .center, spacing: 0) {
-                ForEach(Array(assets.enumerated()), id: \.element) { index, asset in
+                ForEach(Array(assets.enumerated()), id: \.element) { _, asset in
                     HStack(alignment: .center, spacing: 6) {
                         HStack(alignment: .center, spacing: 3) {
                             Circle()
@@ -35,7 +40,7 @@ struct MenubarView: View {
                                 .frame(width: 8, height: 8)
                             Text("\(asset.code)")
                                 .fontMonoMedium(color: .white, size: 12)
-                                
+
                         }.padding(.all, 3)
                             .background(Color.gray.opacity(0.4))
                             .cornerRadius(3)
@@ -46,35 +51,36 @@ struct MenubarView: View {
                             .lineLimit(1)
                             .fixedSize(horizontal: false, vertical: false)
                     }.padding(.horizontal, 5)
-
-                    /*  if index < assets.count - 1 {
-                       Circle()
-                            .fill(Color.gray.opacity(0.3))
-                            .frame(width: 4, height: 4)
-                        Text("")
-                            .opacity(0.3)
-                    }*/
                 }
             }
             .fixedSize(horizontal: false, vertical: true)
             .frame(maxWidth: .infinity)
-                .onReceive(timer) { _ in
-                    isConnected = Reachability.isConnectedToNetwork()
-                    for asset in assets {
-                        Checker.default.check(url: asset.url ?? "https://google.com", completion: { result in
-                            asset.code = Int16(result.statusCode)
-                            asset.lastUpdate = Date()
-                            print(Date())
-                            if result.isDown == true || result.noInternet == true || result.urlError == true {
-                                asset.status = "Down"
-                            } else {
-                                asset.status = "Up"
-                            }
+            .onReceive(timer) { _ in
+                isConnected = Reachability.isConnectedToNetwork()
+                for asset in assets {
+                    Checker.default.check(url: asset.url ?? "https://google.com", completion: { result in
+                        asset.code = Int16(result.statusCode)
+                        if notificationStatus == true && asset.lastUpdate!.addingTimeInterval(TimeInterval(60 * 60 * 1)) < Date() && asset.code > 204 {
+                            let content = UNMutableNotificationContent()
+                            content.title = "\(asset.name ?? "Something") in trouble!"
+                            content.subtitle = "Status Code: \(Int16(result.statusCode))"
+                            content.sound = UNNotificationSound.defaultCritical
+                            content.interruptionLevel = .critical
+                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                            UNUserNotificationCenter.current().add(request)
+                        }
 
-                            try? data.context.save()
-                        })
-                    }
+                        if result.isDown == true || result.noInternet == true || result.urlError == true {
+                            asset.status = "Down"
+                        } else {
+                            asset.status = "Up"
+                        }
+                        asset.lastUpdate = Date()
+                        try? data.context.save()
+                    })
                 }
+            }
         } else {
             Text("🔌 No connection")
                 .fontMonoMedium(color: .white, size: 10)

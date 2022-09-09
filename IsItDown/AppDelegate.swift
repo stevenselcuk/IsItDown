@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             styleMask: [.titled, .borderless],
             backing: .buffered, defer: false)
 
-        managementWindow.level = NSWindow.Level.screenSaver + 99998
+        managementWindow.level = NSWindow.Level.normal + 1
         managementWindow.isReleasedWhenClosed = false
         managementWindow.positionCenter()
         managementWindow.titlebarAppearsTransparent = true
@@ -109,7 +109,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 managementWindow.close()
                 manager.managementPanelOpen = false
             }
-        
     }
 }
 

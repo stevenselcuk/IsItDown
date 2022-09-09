@@ -23,7 +23,7 @@ struct ManagementPanel: View {
     @State var name: String = ""
     @State var url: String = ""
     @State var showInMenubar: Bool = true
-    @State var launchAtLogin: Bool = storage.bool(forKey: "launchAtLogin")
+    @State var launchAtLogin: Bool = storage.optionalBool(forKey: "launchAtLogin") ?? false
     var body: some View {
         VStack {
             HStack(alignment: .center, spacing: 0) {
@@ -77,6 +77,7 @@ struct ManagementPanel: View {
                                     asset.name = name
                                     asset.url = url
                                     asset.createdAt = Date()
+                                    asset.lastUpdate = Date()
                                     asset.addMenubar = showInMenubar
                                     try? data.context.save()
                                     name = ""
@@ -137,8 +138,9 @@ struct ManagementPanel: View {
                 }
             }
             HStack {
-                Image(systemName: "gear")
+                Text("Settings")
                     .padding()
+                    .fontBold(size: 12)
                     .onTapGesture {
                         showingSettings = true
                     }
@@ -166,16 +168,30 @@ struct ManagementPanel: View {
                                 Text("Launch at login")
                                     .fontRegular(size: 12)
                                 Spacer()
-                                Toggle("", isOn: $launchAtLogin)
-                                    .onChange(of: launchAtLogin) { newValue in
+                                Toggle("", isOn: $manager.launchAtLogin)
+                                    .onChange(of: manager.launchAtLogin) { newValue in
                                         SMLoginItemSetEnabled(Constants.helperBundleID as CFString,
-                                                              launchAtLogin)
-                                        print(newValue.description)
-                                        print(launchAtLogin)
-                                        storage.set(newValue.description, forKey: "launchAtLogin")
+                                                              manager.launchAtLogin)
+                                        storage.set(newValue, forKey: "launchAtLogin")
                                     }
                                     .fontRegular(size: 12)
                             }
+
+                        
+                                HStack(alignment: .center, spacing: 0) {
+                                    Text("Send notifications")
+                                        .fontRegular(size: 12)
+                                    Spacer()
+                                    Toggle("", isOn: $manager.notificationStatus)
+                                        .onChange(of: manager.notificationStatus) { newValue in
+                                            if newValue == true {
+                                                Manager.askPermission()
+                                            }
+                                            storage.set(newValue, forKey: "notificationStatus")
+                                        }
+                                        .fontRegular(size: 12)
+                                }
+                            
 
                             HStack {
                                 Text("Bug or feature?")
@@ -200,7 +216,7 @@ struct ManagementPanel: View {
                     .padding()
 
                 Spacer()
-                Image(systemName: "power")
+                Text("Quit")
                     .fontBold(size: 12)
                     .onTapGesture {
                         Manager.quitApp()

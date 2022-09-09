@@ -5,7 +5,7 @@
         <attribute name="code" optional="YES" attributeType="Integer 16" defaultValueString="200" usesScalarValueType="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" defaultDateTimeInterval="683143260" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="Name"/>
         <attribute name="status" optional="YES" attributeType="String" defaultValueString="Up"/>
         <attribute name="url" optional="YES" attributeType="String"/>

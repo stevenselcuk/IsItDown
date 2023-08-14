@@ -49,6 +49,9 @@
 
 [Download from GitHub](https://github.com/stevenselcuk/IsItDown/releases/download/1.0/IsItDown.zip)
 
+Is it down? is free but you can still support my work 
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z56MT8M)
   
 ## Roadmap 🗺
 

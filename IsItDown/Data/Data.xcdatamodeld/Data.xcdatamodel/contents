@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24299" systemVersion="24G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Asset" representedClassName="Asset" syncable="YES" codeGenerationType="class">
         <attribute name="addMenubar" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="code" optional="YES" attributeType="Integer 16" defaultValueString="200" usesScalarValueType="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="errorDescription" optional="YES" attributeType="String"/>
+        <attribute name="groupName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="lastUpdate" optional="YES" attributeType="Date" defaultDateTimeInterval="683143260" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String" defaultValueString="Name"/>
+        <attribute name="responseTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="status" optional="YES" attributeType="String" defaultValueString="Up"/>
         <attribute name="url" optional="YES" attributeType="String"/>
+        <relationship name="logs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StatusLog" inverseName="asset" inverseEntity="StatusLog"/>
     </entity>
-    <elements>
-        <element name="Asset" positionX="-63" positionY="-18" width="128" height="149"/>
-    </elements>
+    <entity name="StatusLog" representedClassName="StatusLog" syncable="YES" codeGenerationType="class">
+        <attribute name="isUp" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="responseTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="asset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="logs" inverseEntity="Asset"/>
+    </entity>
 </model>

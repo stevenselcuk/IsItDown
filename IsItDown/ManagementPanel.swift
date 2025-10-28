@@ -4,7 +4,6 @@ import Charts
 import CoreData
 
 let storage = UserDefaults.standard
-
 extension String {
     var isValidURL: Bool {
         let trimmed = self.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -27,6 +26,7 @@ extension String {
         return false
     }
 }
+
 
 struct ManagementPanel: View {
     var data = PersistenceProvider.default
@@ -53,7 +53,6 @@ struct ManagementPanel: View {
     private var sortedGroupKeys: [String] {
         groupedAssets.keys.sorted()
     }
-
     private func addAsset() {
         let trimmedURL = url.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !name.isEmpty, !trimmedURL.isEmpty, trimmedURL.isValidURL else { return }
@@ -299,4 +298,5 @@ struct AssetDetailView: View {
         .frame(width: 400, height: 450)
     }
 }
+
 

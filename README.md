@@ -6,9 +6,9 @@
 <br>
 
 <p align="center">
-<a href="https://apps.apple.com/us/app/is-it-down/id1640267516" target="_blank">
+<a href="https://apps.apple.com/us/app/is-it-down-menubar-monitor/id1640267516" target="_blank">
     <img
-      src="https://i.imgur.com/4sHArE8.jpg"
+      src="https://i.imgur.com/KvZzWxV.jpeg"
       alt="🤨 Is it down? Hope not"
       title="🤨 Is it down? Hope not"
     /></a>
@@ -23,7 +23,7 @@
 
 ### Main Features:
 
-- Nothing special
+- Uptime monitoring, logging...
 
 ### How to use?
 
@@ -32,6 +32,7 @@
 - Click on the "Plus" button
 - Give a name
 - You can hide/show on the menubar (Use your menubar space wisely)
+- Enter a group or... leave blank for add under ungrouped
 - Enter URL & hit enter
 
 #### How to change the check interval?
@@ -41,32 +42,20 @@
 
 ## Minimum Requirements 🤔
 
-`macOS >= 12`
+`macOS >= 15`
 
 ## Download
 	
-[Download from AppStore](https://apps.apple.com/us/app/is-it-down/id1640267516) 
-
-[Download from GitHub](https://github.com/stevenselcuk/IsItDown/releases/download/1.0/IsItDown.zip)
-
-Is it down? is free but you can still support my work 
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z56MT8M)
+[Download from AppStore](https://apps.apple.com/us/app/is-it-down-menubar-monitor/id1640267516) 
   
 ## Roadmap 🗺
 
 - [X] App Store submit
-
+- [X] Avoid App Store removal after 3 years
+- [ ] Add Some new stuff
 
 ## Change log 🧠
 
 ### 🏷 v1.0 : Initial Release
 
-
-## Notes and Credits 🍍
-
-Some of icons made by Freepik from www.flaticon.com
-
-## Do you like it? 🙌
-
-[![Buy Me A Coffee](https://raw.githubusercontent.com/stevenselcuk/palamut/master/tools/orange_img.png)](https://www.buymeacoffee.com/stevenselcuk)
+### 🏷 v2.0 : App Store said update your app or we gonna remove it. So I added some new feature like, logs, charts, app groups etc. 🤦‍♂️
